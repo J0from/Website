@@ -238,7 +238,7 @@ export default function HomePage() {
 
       {/* NEW SECTION: Bottlenecks (BG Black, Left Aligned) */}
       <section
-        className={`py-12 sm:py-16 md:py-20 lg:py-24 bg-black pl-4 pr-8 sm:pl-8 sm:pr-16 md:pl-12 md:pr-32 lg:pl-16 lg:pr-48 xl:pr-80`}
+        className={`py-12 sm:py-16 md:py-20 lg:py-24 bg-black pl-4 pr-8 sm:pl-8 sm:pr-12 md:pl-12 md:pr-20 lg:pl-16 lg:pr-32 xl:pr-48`}
       >
         <div className="text-right">
           <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white leading-tight space-y-1">
