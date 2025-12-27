@@ -31,6 +31,8 @@ import {
   ChevronDown,
   ChevronUp,
   ArrowLeft,
+  Linkedin,
+  Instagram,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -1160,14 +1162,37 @@ export default function FractionalOperationsPage() {
                 Helping service businesses eliminate operational chaos and scale systematically with real People &
                 Technology Augmentation.
               </p>
+              {/* Social media links update */}
               <div className="flex gap-4 mt-6">
-                {/* Social placeholders */}
-                <div className="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
-                  in
-                </div>
-                <div className="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
-                  x
-                </div>
+                <Link
+                  href="https://www.linkedin.com/company/jofrom"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-blue-600 transition-colors"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4 text-white" />
+                </Link>
+                <Link
+                  href="https://x.com/J0from"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-blue-600 transition-colors"
+                  aria-label="Follow us on X"
+                >
+                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </Link>
+                <Link
+                  href="https://www.instagram.com/jofrom.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-pink-600 transition-colors"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-4 h-4 text-white" />
+                </Link>
               </div>
             </div>
             <div>
@@ -1213,14 +1238,16 @@ export default function FractionalOperationsPage() {
             </div>
             <div>
               <h4 className="text-white font-bold mb-4">Get Started</h4>
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors mb-4 block w-fit"
+              {/* Updated button to link to Calendly */}
+              <Link
+                href="https://calendly.com/myj0/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors mb-4 inline-block"
               >
                 Book Strategy Session
-              </Button>
-              {/* CHANGE: Updated email from itsgrowtime.com to jofrom.io */}
-              <a href="mailto:hello@jofrom.io" className="text-sm hover:text-white transition-colors">
+              </Link>
+              <a href="mailto:hello@jofrom.io" className="text-sm hover:text-white transition-colors block">
                 hello@jofrom.io
               </a>
               <p className="text-xs mt-2">Serving service businesses nationwide</p>
