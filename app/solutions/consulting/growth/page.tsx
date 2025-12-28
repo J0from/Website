@@ -218,7 +218,7 @@ export default function GrowthPage() {
                 Stop Waiting for Referrals. <span className="text-blue-600">Start Growing.</span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-600 mb-8 leading-relaxed">
-                Get dedicated sales professionals building your pipeline with AI-powered outbound.
+                Get dedicated sales professionals building your pipeline with Jo.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -316,7 +316,7 @@ export default function GrowthPage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">Your Outbound Sales Team</h2>
             <p className="text-lg text-blue-50 leading-relaxed">
-              Dedicated sales professionals building predictable pipeline with Jo-powered outreach.
+              Dedicated sales professionals building predictable pipeline with Jo.
             </p>
           </div>
 

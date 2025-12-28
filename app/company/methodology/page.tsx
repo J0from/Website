@@ -281,13 +281,15 @@ export default function MethodologyPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="gradient" size="hero" asChild>
-              <Link href="/company/contact">
+              <Link href="https://calendly.com/myj0/30min" target="_blank" rel="noopener noreferrer">
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Schedule a Consultation
               </Link>
             </Button>
             <Button variant="outline" size="hero" asChild>
-              <Link href="/solutions/smb">Meet Jo</Link>
+              <Link href="https://calendly.com/myj0/30min" target="_blank" rel="noopener noreferrer">
+                Meet Jo
+              </Link>
             </Button>
           </div>
         </div>

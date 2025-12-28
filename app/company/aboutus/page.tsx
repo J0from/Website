@@ -314,7 +314,7 @@ export default function AboutUsPage() {
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Simple, transparent pricing starting at $5/month</span>
+                    <span className="text-gray-700">Simple, transparent pricing starting at $25/month</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -326,7 +326,7 @@ export default function AboutUsPage() {
                   </li>
                 </ul>
                 <Button variant="secondary" size="default" asChild>
-                  <Link href="/about">
+                  <Link href="/solutions/smb/purchase">
                     See Pricing
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>

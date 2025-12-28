@@ -805,7 +805,9 @@ export default function SMBPage() {
               variant="outline"
               className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 text-lg font-semibold rounded-full bg-transparent"
             >
-              <Link href="/solutions/smb/purchase">Get Personalized Recommendation</Link>
+              <Link href="https://calendly.com/myj0/30min" target="_blank">
+                Get Personalized Recommendation
+              </Link>
             </Button>
           </div>
         </div>

@@ -148,6 +148,7 @@ export default function EnterprisePage() {
               size="hero"
               variant="outline"
               className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900"
+              onClick={() => window.open("https://calendly.com/myj0/30min", "_blank")}
             >
               Contact Business Sales
             </Button>
