@@ -87,6 +87,9 @@ export default function ConsultingGetMeetingsPage() {
                   ? "Helping businesses scale with real People & Technology Augementation"
                   : "Streamline your backend operations with Human enabled Augementation"}
               </p>
+              <p className="text-lg text-gray-500 italic">
+                Either help them grow (increase revenue) or streamline operations (increase profit)
+              </p>
             </div>
 
             <div className="flex justify-center">

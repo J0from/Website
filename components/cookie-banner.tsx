@@ -36,7 +36,10 @@ export function CookieBanner() {
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-slate-900 mb-2">Cookie Preferences</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
+                We use cookies to enhance your browsing experience. We serve personalized content and analyze our
+                traffic.
+                <br />
+                <br />
                 By clicking "Accept All", you consent to our use of cookies. Read our{" "}
                 <Link href="/cookies" className="text-blue-600 hover:text-blue-700 underline">
                   Cookie Policy
