@@ -69,7 +69,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}
-      <nav className={`flex justify-between items-center py-4 sm:py-6 max-w-[1600px] mx-auto ${marginClass}`}>
+      <nav
+        className={`sticky top-0 z-50 flex justify-between items-center py-4 sm:py-6 max-w-[1600px] mx-auto ${marginClass} bg-slate-50/80 backdrop-blur-md border-b border-slate-200/50`}
+      >
         <div className="flex items-center">
           <Link href="/" className="text-xl sm:text-2xl md:text-3xl">
             <Logo width={24} height={24} />
@@ -89,11 +91,31 @@ export default function HomePage() {
         </div>
       </nav>
 
+      {/* Hero Video Section with Overlaid Button */}
+      <section className="w-full pt-8">
+        <div className="relative w-full">
+          <div className="relative w-full max-h-[600px] overflow-hidden border-y-4 border-slate-300 shadow-lg">
+            <video className="w-full h-full object-cover opacity-60" autoPlay loop muted playsInline>
+              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Herro%20Video-4KoLgBEgSZSrzfzocWhpAxa4boP0as.mov" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            {/* Overlaid Try Jo Button - Made Smaller */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Link href="https://demo.jofrom.io/" target="_blank" rel="noopener noreferrer">
+                <Button className="h-10 md:h-12 px-6 md:px-8 text-base md:text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-2xl">
+                  Try Jo
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
-      <div className={`flex flex-col items-center justify-center min-h-[60vh] sm:min-h-[70vh] ${marginClass}`}>
+      <div className={`flex flex-col items-center justify-center min-h-[30vh] sm:min-h-[35vh] ${marginClass}`}>
         <div className="text-center max-w-6xl mx-auto w-full">
           {/* Main Heading */}
-          <div className="mb-6 sm:mb-8 md:mb-12 lg:mb-16">
+          <div className="mb-4 sm:mb-6 md:mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-slate-900 mb-4 sm:mb-6 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 leading-tight">
               <span className="flex items-center">
                 <span>J</span>
@@ -135,13 +157,6 @@ export default function HomePage() {
               <span className="hidden lg:inline-block">.</span>
             </h1>
           </div>
-
-          {/* CTA Button */}
-          <Link href="https://demo.jofrom.io/" target="_blank" rel="noopener noreferrer">
-            <Button className="h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-10 text-sm sm:text-base md:text-lg bg-slate-900 hover:bg-slate-800 text-white">
-              Try Jo
-            </Button>
-          </Link>
         </div>
       </div>
 
