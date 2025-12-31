@@ -64,14 +64,10 @@ export default function HomePage() {
     return "_".repeat(baseLength)
   }
 
-  const marginClass = "px-6 md:px-12 lg:px-24"
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}
-      <nav
-        className={`sticky top-0 z-50 flex justify-between items-center py-4 sm:py-6 max-w-[1600px] mx-auto ${marginClass} bg-slate-50/80 backdrop-blur-md border-b border-slate-200/50`}
-      >
+      <nav className="sticky top-0 z-50 flex justify-between items-center py-4 sm:py-6 px-6 md:px-12 lg:px-24 bg-slate-50/80 backdrop-blur-md border-b border-slate-200/50">
         <div className="flex items-center">
           <Link href="/" className="text-xl sm:text-2xl md:text-3xl">
             <Logo width={24} height={24} />
@@ -162,7 +158,7 @@ export default function HomePage() {
 
       {/* Man + Machine Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-12 sm:py-16 md:py-24">
-        <div className={`w-full max-w-6xl mx-auto ${marginClass}`}>
+        <div className="w-full max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="text-left">
             <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
               We help businesses strike the <br />
@@ -178,7 +174,7 @@ export default function HomePage() {
 
       {/* Buttons Section */}
       <section className="pt-8 sm:pt-12 md:pt-16 pb-4 bg-white text-right">
-        <div className={`max-w-[1600px] mx-auto ${marginClass}`}>
+        <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch justify-center">
             <Link href="/enterprise" className="w-full sm:w-auto">
               <Button
@@ -204,7 +200,7 @@ export default function HomePage() {
       <section className="bg-white py-6 sm:py-8 md:py-12"></section>
 
       {/* Discover, Design, Deploy Framework Section */}
-      <section className={`py-12 sm:py-14 md:py-16 bg-gradient-to-br from-slate-50 to-slate-100 ${marginClass}`}>
+      <section className="py-12 sm:py-14 md:py-16 bg-gradient-to-br from-slate-50 to-slate-100 px-6 md:px-12 lg:px-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 px-2">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -288,7 +284,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={`py-16 sm:py-20 md:py-24 bg-white ${marginClass}`}>
+      <section className={`py-16 sm:py-20 md:py-24 bg-white px-6 md:px-12 lg:px-24`}>
         <div className="max-w-6xl mx-auto text-center">
           <Link href="/solutions/smb/purchase">
             <Button
