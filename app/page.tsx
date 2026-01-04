@@ -225,37 +225,88 @@ export default function HomePage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {/* Discovery Phase */}
-            <Card className="border-2 hover:border-blue-200 transition-all bg-white">
-              <CardContent className="p-6 sm:p-7 md:p-8 text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                  <Search className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            <div className="flip-card h-64 sm:h-72 md:h-80">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <Card className="border-2 hover:border-blue-200 transition-all bg-white h-full">
+                    <CardContent className="p-6 sm:p-7 md:p-8 text-center h-full flex flex-col justify-center">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <Search className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Discovery</h3>
+                      <p className="text-xs sm:text-sm font-semibold text-blue-600">Discover the problem</p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Discovery</h3>
-                <p className="text-xs sm:text-sm font-semibold text-blue-600">Discover the problem</p>
-              </CardContent>
-            </Card>
+                <div className="flip-card-back">
+                  <Card className="border-2 border-blue-400 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+                    <CardContent className="p-6 sm:p-7 md:p-8 h-full flex flex-col justify-center">
+                      <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-3">Discovery</h3>
+                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                        We map your organization's structure, identify who owns each outcome, and pinpoint where work is
+                        breaking down or creating bottlenecks.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
 
             {/* Design Phase */}
-            <Card className="border-2 hover:border-blue-200 transition-all bg-white">
-              <CardContent className="p-6 sm:p-7 md:p-8 text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                  <Lightbulb className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            <div className="flip-card h-64 sm:h-72 md:h-80">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <Card className="border-2 hover:border-blue-200 transition-all bg-white h-full">
+                    <CardContent className="p-6 sm:p-7 md:p-8 text-center h-full flex flex-col justify-center">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <Lightbulb className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Design</h3>
+                      <p className="text-xs sm:text-sm font-semibold text-blue-600">Design the fix</p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Design</h3>
-                <p className="text-xs sm:text-sm font-semibold text-blue-600">Design the fix</p>
-              </CardContent>
-            </Card>
+                <div className="flip-card-back">
+                  <Card className="border-2 border-purple-400 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+                    <CardContent className="p-6 sm:p-7 md:p-8 h-full flex flex-col justify-center">
+                      <h3 className="text-lg sm:text-xl font-bold text-purple-600 mb-3">Design</h3>
+                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                        We figure out which tasks humans must do and which machines can handle, creating a detailed plan
+                        that shows cost savings, reduces risk, and maintains compliance.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
 
             {/* Deploy Phase */}
-            <Card className="border-2 hover:border-blue-200 transition-all bg-white sm:col-span-2 md:col-span-1">
-              <CardContent className="p-6 sm:p-7 md:p-8 text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                  <Rocket className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            <div className="flip-card h-64 sm:h-72 md:h-80 sm:col-span-2 md:col-span-1">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <Card className="border-2 hover:border-blue-200 transition-all bg-white h-full">
+                    <CardContent className="p-6 sm:p-7 md:p-8 text-center h-full flex flex-col justify-center">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <Rocket className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Deploy</h3>
+                      <p className="text-xs sm:text-sm font-semibold text-blue-600">Deploy the solution</p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Deploy</h3>
-                <p className="text-xs sm:text-sm font-semibold text-blue-600">Deploy the solution</p>
-              </CardContent>
-            </Card>
+                <div className="flip-card-back">
+                  <Card className="border-2 border-blue-400 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+                    <CardContent className="p-6 sm:p-7 md:p-8 h-full flex flex-col justify-center">
+                      <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-3">Deploy</h3>
+                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                        We put the solution into action with clear controls, live monitoring, and audit trails that
+                        prove everything is working correctly.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
