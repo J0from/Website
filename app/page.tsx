@@ -239,7 +239,7 @@ export default function HomePage() {
                   </Card>
                 </div>
                 <div className="flip-card-back">
-                  <Card className="border-2 border-blue-400 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+                  <Card className="border-2 border-blue-400 bg-white h-full">
                     <CardContent className="p-6 sm:p-7 md:p-8 h-full flex flex-col justify-center">
                       <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-3">Discovery</h3>
                       <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
@@ -267,7 +267,7 @@ export default function HomePage() {
                   </Card>
                 </div>
                 <div className="flip-card-back">
-                  <Card className="border-2 border-purple-400 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+                  <Card className="border-2 border-purple-400 bg-white h-full">
                     <CardContent className="p-6 sm:p-7 md:p-8 h-full flex flex-col justify-center">
                       <h3 className="text-lg sm:text-xl font-bold text-purple-600 mb-3">Design</h3>
                       <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
@@ -295,7 +295,7 @@ export default function HomePage() {
                   </Card>
                 </div>
                 <div className="flip-card-back">
-                  <Card className="border-2 border-blue-400 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+                  <Card className="border-2 border-blue-400 bg-white h-full">
                     <CardContent className="p-6 sm:p-7 md:p-8 h-full flex flex-col justify-center">
                       <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-3">Deploy</h3>
                       <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
