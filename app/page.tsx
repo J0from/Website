@@ -322,7 +322,7 @@ export default function HomePage() {
               </span>{" "}
               in{" "}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
-                highly regulated operations
+                highly regulated industries
               </span>
               —
             </div>
