@@ -111,8 +111,7 @@ export function MethodologyPageClient() {
       num: 3,
       title: "Role",
       subtitle: "Outcomes to deliver",
-      description:
-        "Establishes ownership, accountability boundaries, human requirements, and non-transferable duties.",
+      description: "Establishes ownership, accountability boundaries, human requirements, and non-transferable duties.",
       badge: "STAYS HUMAN",
       badgeColor: "bg-gradient-to-r from-blue-600 to-purple-600",
       borderColor: "border-blue-600",
@@ -527,11 +526,11 @@ export function MethodologyPageClient() {
               </p>
 
               <div className="space-y-3 max-w-2xl mx-auto mb-8">
-                <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-center gap-4 p-4 bg-gray-50 rounded-lg">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
                     1
                   </div>
-                  <div className="flex-1">
+                  <div className="text-center">
                     <span className="font-bold text-gray-900">Organization</span>
                     <span className="text-gray-600 mx-2">—</span>
                     <span className="text-gray-600">Hard constraints</span>
@@ -539,11 +538,11 @@ export function MethodologyPageClient() {
                   <span className="px-3 py-1 bg-slate-900 text-white text-sm font-medium rounded-full">Logic</span>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-center gap-4 p-4 bg-gray-50 rounded-lg">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
                     2
                   </div>
-                  <div className="flex-1">
+                  <div className="text-center">
                     <span className="font-bold text-gray-900">Strata</span>
                     <span className="text-gray-600 mx-2">—</span>
                     <span className="text-gray-600">Structure</span>
@@ -551,11 +550,11 @@ export function MethodologyPageClient() {
                   <span className="px-3 py-1 bg-slate-900 text-white text-sm font-medium rounded-full">Logic</span>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-center gap-4 p-4 bg-gray-50 rounded-lg">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
                     3
                   </div>
-                  <div className="flex-1">
+                  <div className="text-center">
                     <span className="font-bold text-gray-900">Role</span>
                     <span className="text-gray-600 mx-2">—</span>
                     <span className="text-gray-600">Accountability</span>
@@ -565,11 +564,11 @@ export function MethodologyPageClient() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-2 border-blue-600">
+                <div className="flex items-center justify-center gap-4 p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-2 border-blue-600">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
                     4
                   </div>
-                  <div className="flex-1">
+                  <div className="text-center">
                     <span className="font-bold text-gray-900">Task</span>
                     <span className="text-gray-600 mx-2">—</span>
                     <span className="text-gray-600">Execution</span>
