@@ -371,7 +371,7 @@ export function MethodologyPageClient() {
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900">
-            8-Phase Outcome Decomposition
+            Role Decomposition
           </h2>
           <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
             Every outcome follows a universal execution pattern that enables precise task allocation
