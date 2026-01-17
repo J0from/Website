@@ -294,7 +294,7 @@ export default function SMBPageClient() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
             Meet Jo
           </h1>
-          <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6 opacity-90 drop-shadow-md">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 opacity-90 drop-shadow-md">
             Your Machine Dream Team
           </h2>
           <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed drop-shadow-sm px-4">
