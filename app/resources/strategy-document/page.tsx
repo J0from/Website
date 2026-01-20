@@ -58,12 +58,8 @@ export default function StrategyDocumentPage() {
   }
 
   const handleDownload = () => {
-    const link = document.createElement("a")
-    link.href = "/documents/jo-gtm-strategy-document.pdf"
-    link.download = "Jo-GTM-Strategy-Document.pdf"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    // Use window.open to trigger the download in a new tab
+    window.open("/documents/jo-gtm-strategy-document.pdf", "_blank")
   }
 
   return (
