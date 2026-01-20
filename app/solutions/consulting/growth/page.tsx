@@ -821,7 +821,7 @@ export default function GrowthPage() {
                     ))}
                   </ul>
                   <p className="text-sm text-slate-600 pt-4">
-                    <strong>Perfect for:</strong> $2M-$10M+ revenue businesses serious about scale
+                    <strong>Perfect for:</strong> $2M-$10M+ businesses serious about scale
                   </p>
                 </div>
                 <Button
