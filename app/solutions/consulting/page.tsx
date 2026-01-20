@@ -268,14 +268,24 @@ export default function ConsultingGetMeetingsPage() {
               ? "Are you ready for new clients?"
               : "Are you ready to get back to doing the fun stuff?"}
           </p>
-          <Button
-            variant="secondary"
-            size="hero"
-            onClick={() => window.open("https://calendly.com/myj0/30min", "_blank")}
-          >
-            {activeTab === "growth" ? "Book Your Strategy Session" : "Get Your Operations Audit"}
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              variant="secondary"
+              size="hero"
+              onClick={() => window.open("https://calendly.com/myj0/30min", "_blank")}
+            >
+              {activeTab === "growth" ? "Book Your Strategy Session" : "Get Your Operations Audit"}
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button
+              variant="outline"
+              size="hero"
+              className="border-white text-white hover:bg-white/10 bg-transparent"
+              onClick={() => window.open("/enterprise/whitepaper", "_blank")}
+            >
+              Download Strategy Document
+            </Button>
+          </div>
         </div>
       </section>
 
