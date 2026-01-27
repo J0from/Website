@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { HomePageClient } from "./HomePageClient"
 
 export const metadata: Metadata = {
-  title: "Jo: Human + Machine | Labor Shortage Solutions for Regulated Industries",
+  title: "Human + Machine",
   description:
     "Fix labor bottlenecks in highly regulated industries with digital employees. Stay compliant, cut costs, and handle repetitive tasks in healthcare, manufacturing, energy, and food processing.",
   keywords: [
