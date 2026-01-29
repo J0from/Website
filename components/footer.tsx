@@ -34,7 +34,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/solutions/consulting" className="text-slate-400 hover:text-white transition-colors">
-                  Fractional
+                  Staffing
                 </Link>
               </li>
             </ul>
