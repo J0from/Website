@@ -3,7 +3,7 @@
 import { stripe } from "@/lib/stripe"
 import { PRODUCTS } from "@/lib/products"
 
-export async function startCheckoutSession(productId: string): Promise<string> {
+export async function startCheckoutSession(productId: string) {
   if (!stripe) {
     throw new Error("Stripe is not configured. Please set the STRIPE_SECRET_KEY environment variable.")
   }
@@ -37,10 +37,6 @@ export async function startCheckoutSession(productId: string): Promise<string> {
     ],
     mode: "subscription",
   })
-
-  if (!session.client_secret) {
-    throw new Error("Failed to create checkout session: client_secret is null")
-  }
 
   return session.client_secret
 }
