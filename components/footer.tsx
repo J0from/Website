@@ -13,8 +13,7 @@ export function Footer() {
               <Logo width={16} height={16} className="text-white [&>span]:text-white" />
             </Link>
             <p className="text-sm text-slate-400">
-              <strong>Human + Machine</strong> collaboration platform for operational excellence across your
-              organization.
+              <strong>Human + Machine</strong> staffing.
             </p>
           </div>
 
