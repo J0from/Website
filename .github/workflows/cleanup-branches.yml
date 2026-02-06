@@ -1,0 +1,29 @@
+name: Cleanup Branches
+
+on:
+  workflow_dispatch:  # Manual trigger
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Delete stale branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get all remote branches except main and staging
+          branches=$(git branch -r | grep -v 'origin/main$' | grep -v 'origin/staging$' | grep -v 'HEAD' | sed 's/origin\///')
+
+          for branch in $branches; do
+            echo "Deleting branch: $branch"
+            git push origin --delete "$branch" || echo "Failed to delete $branch"
+          done
+
+          echo "Branch cleanup complete!"
