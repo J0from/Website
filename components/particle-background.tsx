@@ -8,6 +8,42 @@ interface ParticleBackgroundProps {
   particleColor?: string
 }
 
+interface Bounds {
+  width: number
+  height: number
+}
+
+class Particle {
+  x: number
+  y: number
+  vx: number
+  vy: number
+  radius: number
+
+  constructor(bounds: Bounds) {
+    this.x = Math.random() * bounds.width
+    this.y = Math.random() * bounds.height
+    this.vx = (Math.random() - 0.5) * 0.5
+    this.vy = (Math.random() - 0.5) * 0.5
+    this.radius = Math.random() * 2 + 1
+  }
+
+  update(bounds: Bounds) {
+    this.x += this.vx
+    this.y += this.vy
+
+    if (this.x < 0 || this.x > bounds.width) this.vx *= -1
+    if (this.y < 0 || this.y > bounds.height) this.vy *= -1
+  }
+
+  draw(ctx: CanvasRenderingContext2D, color: string) {
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+    ctx.fillStyle = color
+    ctx.fill()
+  }
+}
+
 export function ParticleBackground({
   className = "",
   particleCount = 50,
@@ -30,48 +66,15 @@ export function ParticleBackground({
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
 
-    const bounds = {
+    const bounds: Bounds = {
       width: canvas.width,
       height: canvas.height,
-    }
-
-    // Particle class
-    class Particle {
-      x: number
-      y: number
-      vx: number
-      vy: number
-      radius: number
-
-      constructor() {
-        this.x = Math.random() * bounds.width
-        this.y = Math.random() * bounds.height
-        this.vx = (Math.random() - 0.5) * 0.5
-        this.vy = (Math.random() - 0.5) * 0.5
-        this.radius = Math.random() * 2 + 1
-      }
-
-      update() {
-        this.x += this.vx
-        this.y += this.vy
-
-        if (this.x < 0 || this.x > bounds.width) this.vx *= -1
-        if (this.y < 0 || this.y > bounds.height) this.vy *= -1
-      }
-
-      draw() {
-        if (!ctx) return
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fillStyle = particleColor
-        ctx.fill()
-      }
     }
 
     // Create particles
     const particles: Particle[] = []
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle())
+      particles.push(new Particle(bounds))
     }
 
     // Animation loop
@@ -82,8 +85,8 @@ export function ParticleBackground({
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach((particle) => {
-        particle.update()
-        particle.draw()
+        particle.update(bounds)
+        particle.draw(ctx, particleColor)
       })
 
       // Draw connections

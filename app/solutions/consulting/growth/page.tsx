@@ -225,7 +225,8 @@ export default function GrowthPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 text-lg px-8 rounded-lg font-bold shadow-lg transition-all"
+                  variant="gradient"
+                  className="text-lg px-8 rounded-lg font-bold shadow-lg transition-all"
                   onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Book Your Session
@@ -1058,7 +1059,8 @@ export default function GrowthPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  variant="gradient"
+                  className="w-full py-4 rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Book Your Session"}
                 </Button>

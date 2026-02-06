@@ -70,7 +70,7 @@ export default function StrategyDocumentPage() {
           <Link href="/" className="text-xl sm:text-2xl font-bold text-white flex items-center">
             J
             <div className="relative mx-1 w-4 h-4 sm:w-5 sm:h-5">
-              <Image src="/qubit.png" alt="Qubit" fill className="brightness-0 invert object-contain" />
+              <Image src="/qubit.png" alt="Qubit" fill sizes="20px" className="brightness-0 invert object-contain" />
             </div>
           </Link>
         </div>
@@ -167,7 +167,8 @@ export default function StrategyDocumentPage() {
 
                   <Button
                     onClick={handleDownload}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-6 text-lg rounded-xl"
+                    variant="gradient"
+                    className="w-full font-semibold py-6 text-lg rounded-xl"
                   >
                     <Download className="w-5 h-5 mr-2" />
                     Download Strategy Document
@@ -283,7 +284,8 @@ export default function StrategyDocumentPage() {
                   <Button
                     type="submit"
                     disabled={!isFormValid || isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-6 text-lg rounded-xl disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+                    variant="gradient"
+                    className="w-full font-semibold py-6 text-lg rounded-xl disabled:opacity-50 disabled:cursor-not-allowed mt-6"
                   >
                     {isSubmitting ? (
                       <>

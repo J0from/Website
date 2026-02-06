@@ -48,10 +48,6 @@ export default function IntegrationsPage() {
     router.push("/agent-selection")
   }
 
-  const handleContinue = () => {
-    console.log("Selected integrations:", selectedIntegrations)
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}

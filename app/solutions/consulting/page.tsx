@@ -55,8 +55,8 @@ export default function ConsultingGetMeetingsPage() {
           </Link>
           <Link href="/solutions/smb">
             <Button
-              variant="outline"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 hover:from-blue-700 hover:to-purple-700 hover:text-white"
+              variant="gradient"
+              className="hover:text-white"
             >
               <span className="hidden sm:inline">Meet Jo</span>
               <span className="sm:hidden">Jo</span>

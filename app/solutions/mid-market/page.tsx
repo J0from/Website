@@ -64,8 +64,8 @@ export default function MidMarketPage() {
           </Link>
           <Link href="/company/aboutus">
             <Button
-              variant="outline"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 hover:from-blue-700 hover:to-purple-700 hover:text-white px-4 py-2 h-auto"
+              variant="gradient"
+              className="px-4 py-2 h-auto hover:text-white"
             >
               Meet Jo
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -83,7 +83,7 @@ export default function MidMarketPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="https://calendly.com/myj0/30min" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 hover:from-blue-700 hover:to-purple-700 px-8 py-6 text-lg h-auto">
+              <Button variant="gradient" className="px-8 py-6 text-lg h-auto">
                 Schedule Demo
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>

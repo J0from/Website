@@ -174,11 +174,6 @@ export default function AgentSelectionPage() {
     router.push("/business-type")
   }
 
-  const handleContinue = () => {
-    console.log("Selected agents:", selectedAgents)
-    // Navigate to next step
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}
@@ -186,7 +181,7 @@ export default function AgentSelectionPage() {
         <Link href="/" className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center">
           J
           <div className="relative mx-1 w-4 h-4 sm:w-5 sm:h-5">
-            <Image src="/qubit.png" alt="Qubit" fill className="brightness-0 object-contain" />
+            <Image src="/qubit.png" alt="Qubit" fill sizes="20px" className="brightness-0 object-contain" />
             <div
               className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-normal opacity-100"
               style={{

@@ -251,10 +251,11 @@ export default function SignUpPage() {
                 <Button
                   type="submit"
                   disabled={!isFormValid() || isLoading}
+                  variant={isFormValid() && !isLoading ? "gradient" : "default"}
                   className={`w-full h-12 transition-all duration-200 ${
-                    isFormValid() && !isLoading
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90"
-                      : "bg-slate-300 text-slate-500 cursor-not-allowed"
+                    !(isFormValid() && !isLoading)
+                      ? "bg-slate-300 text-slate-500 cursor-not-allowed"
+                      : ""
                   }`}
                 >
                   {isLoading ? (

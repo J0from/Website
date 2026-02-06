@@ -6,6 +6,7 @@ import { StructuredData } from "@/components/structured-data"
 import "./globals.css"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.jofrom.io"),
   title: "Human + Machine | Jo from",
   description:
     "Jo from is a Staffing Firm. We place people and machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing—the blue-collar jobs that are the foundation of our country.",

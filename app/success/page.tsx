@@ -5,21 +5,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Calendar, ArrowRight, Instagram, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import { Footer } from "@/components/footer"
 
 export default function SuccessPage() {
-  const [companyName, setCompanyName] = useState("")
   const searchParams = useSearchParams()
 
-  useEffect(() => {
-    // Get company name from URL params or localStorage
-    const company = searchParams.get("company") || localStorage.getItem("jo-company-name") || "Your Company"
-    setCompanyName(company)
-
-    // Note: Calendly link is now opened from the contact-info page immediately after loading completes
-    // This removes the duplicate opening and potential glitch
+  const companyName = useMemo(() => {
+    return searchParams.get("company") || (typeof window !== "undefined" ? localStorage.getItem("jo-company-name") : null) || "Your Company"
   }, [searchParams])
 
   return (
@@ -29,7 +23,7 @@ export default function SuccessPage() {
         <Link href="/" className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center">
           J
           <div className="relative mx-1 w-4 h-4 sm:w-5 sm:h-5">
-            <Image src="/qubit.png" alt="Qubit" fill className="brightness-0 object-contain" />
+            <Image src="/qubit.png" alt="Qubit" fill sizes="20px" className="brightness-0 object-contain" />
             <div
               className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-normal opacity-100"
               style={{

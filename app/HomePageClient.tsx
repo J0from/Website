@@ -41,10 +41,6 @@ export function HomePageClient() {
     }
   }, [])
 
-  const getDepartmentSizeClasses = () => {
-    return "text-6xl md:text-8xl"
-  }
-
   const getUnderlineLength = (department: string) => {
     const baseLength = department.length
 
@@ -127,7 +123,7 @@ export function HomePageClient() {
               <span className="flex items-center">
                 <span>J</span>
                 <div className="relative mx-1 sm:mx-2 inline-block" style={{ width: "0.6em", height: "0.6em" }}>
-                  <Image src="/qubit.png" alt="Qubit" fill className="brightness-0 object-contain" />
+                  <Image src="/qubit.png" alt="Qubit" fill sizes="20px" className="brightness-0 object-contain" />
                   <div
                     className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-normal opacity-100"
                     style={{

@@ -305,6 +305,7 @@ export default function SmallBusinessPage() {
               >
                 {size.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    {/* ALLOWED: decorative gradient */}
                     <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 px-4 py-1">
                       {size.badge}
                     </Badge>
@@ -332,12 +333,8 @@ export default function SmallBusinessPage() {
 
                   <Button
                     asChild
-                    variant={size.highlighted ? "default" : "outline"}
-                    className={`w-full ${
-                      size.highlighted
-                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-0"
-                        : ""
-                    }`}
+                    variant={size.highlighted ? "gradient" : "outline"}
+                    className="w-full"
                   >
                     <Link href="/signup">Get Started</Link>
                   </Button>
@@ -414,7 +411,8 @@ export default function SmallBusinessPage() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-0 text-lg px-8 py-6 h-auto font-semibold shadow-xl"
+              variant="gradient"
+              className="text-lg px-8 py-6 h-auto font-semibold shadow-xl"
             >
               <Link href="/signup">
                 Get Jo Now

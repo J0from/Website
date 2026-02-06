@@ -11,7 +11,7 @@ interface BackWarningModalProps {
   currentStep: number
 }
 
-export default function BackWarningModal({ isOpen, onClose, onConfirm, currentStep }: BackWarningModalProps) {
+export default function BackWarningModal({ isOpen, onClose, onConfirm, currentStep: _currentStep }: BackWarningModalProps) {
   if (!isOpen) return null
 
   return (

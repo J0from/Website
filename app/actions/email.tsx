@@ -58,7 +58,7 @@ async function getResendClient() {
       const { Resend } = await import("resend")
       return new Resend(process.env.RESEND_API_KEY)
     }
-  } catch (error) {
+  } catch {
     console.log("[v0] Resend package not available, using mock email mode")
   }
   return null

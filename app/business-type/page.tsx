@@ -117,11 +117,6 @@ export default function BusinessTypePage() {
     router.push("/signup")
   }
 
-  const handleContinue = () => {
-    console.log("Selected business type:", selectedBusiness)
-    // Navigate to next step
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}

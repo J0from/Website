@@ -128,7 +128,8 @@ export default function FractionalOperationsPage() {
                 FAQ
               </Button>
               <Button
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 text-lg px-8 py-4 rounded-lg font-bold shadow-lg transition-all"
+                variant="gradient"
+                className="text-lg px-8 py-4 rounded-lg font-bold shadow-lg transition-all"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Book Your Session
@@ -181,7 +182,8 @@ export default function FractionalOperationsPage() {
                 FAQ
               </Button>
               <Button
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 mt-4"
+                variant="gradient"
+                className="w-full mt-4"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Book Your Session
@@ -204,7 +206,8 @@ export default function FractionalOperationsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 text-lg px-8 py-4 rounded-lg font-bold shadow-lg transition-all"
+                  variant="gradient"
+                  className="text-lg px-8 py-4 rounded-lg font-bold shadow-lg transition-all"
                   onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Get Started
@@ -1111,7 +1114,8 @@ export default function FractionalOperationsPage() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 text-lg py-4 rounded-lg font-bold shadow-lg transition-all disabled:opacity-50"
+                    variant="gradient"
+                    className="w-full text-lg py-4 rounded-lg font-bold shadow-lg transition-all disabled:opacity-50"
                   >
                     {isSubmitting ? "Sending..." : "Book Your Session"}
                   </Button>
@@ -1275,7 +1279,8 @@ export default function FractionalOperationsPage() {
           </div>
           <Button
             onClick={() => scrollToSection("contact")}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 px-8 py-4 rounded-full font-bold shadow-2xl text-lg transition-all"
+            variant="gradient"
+            className="px-8 py-4 rounded-full font-bold shadow-2xl text-lg transition-all"
           >
             Book Your Session
           </Button>
