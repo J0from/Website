@@ -6,18 +6,19 @@ export function Footer() {
   return (
     <footer className="bg-black text-slate-300 py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-start">
-          {/* Brand Section */}
-          <div>
-            <Link href="/" className="text-xl font-bold text-white flex items-center mb-4">
-              <Logo width={16} height={16} className="text-white [&>span]:text-white" />
-            </Link>
-            <p className="text-sm text-slate-400">
-              <strong>Human + Machine</strong> staffing.
-            </p>
-          </div>
+        {/* Brand Section */}
+        <div className="mb-10">
+          <Link href="/" className="text-xl font-bold text-white flex items-center mb-2">
+            <Logo width={16} height={16} className="text-white [&>span]:text-white" />
+          </Link>
+          <p className="text-sm text-slate-400">
+            <strong>Human + Machine</strong> staffing.
+          </p>
+        </div>
 
-          {/* Solutions Section */}
+        {/* Link Columns — equal thirds */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
+          {/* Solutions */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h3>
             <ul className="space-y-2 text-sm">
@@ -51,7 +52,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company Section */}
+          {/* Company */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
@@ -78,10 +79,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Connect Section with Icons */}
+          {/* Connect */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Connect</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="https://www.linkedin.com/company/jofrom"
@@ -90,8 +91,8 @@ export function Footer() {
                   className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
                   aria-label="Follow us on LinkedIn"
                 >
-                  <Linkedin className="w-5 h-5 group-hover:text-blue-400 transition-colors" />
-                  <span className="text-sm">LinkedIn</span>
+                  <Linkedin className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
+                  <span>LinkedIn</span>
                 </Link>
               </li>
               <li>
@@ -102,8 +103,8 @@ export function Footer() {
                   className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
                   aria-label="Follow us on Instagram"
                 >
-                  <Instagram className="w-5 h-5 group-hover:text-pink-400 transition-colors" />
-                  <span className="text-sm">Instagram</span>
+                  <Instagram className="w-4 h-4 group-hover:text-pink-400 transition-colors" />
+                  <span>Instagram</span>
                 </Link>
               </li>
               <li>
@@ -115,13 +116,13 @@ export function Footer() {
                   aria-label="Follow us on X (formerly Twitter)"
                 >
                   <svg
-                    className="w-5 h-5 fill-current group-hover:text-slate-200 transition-colors"
+                    className="w-4 h-4 fill-current group-hover:text-slate-200 transition-colors"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
-                  <span className="text-sm">Twitter</span>
+                  <span>Twitter</span>
                 </Link>
               </li>
               <li>
@@ -130,8 +131,8 @@ export function Footer() {
                   className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
                   aria-label="Contact Us"
                 >
-                  <Mail className="w-5 h-5 group-hover:text-blue-300 transition-colors" />
-                  <span className="text-sm">Contact Us</span>
+                  <Mail className="w-4 h-4 group-hover:text-blue-300 transition-colors" />
+                  <span>Contact Us</span>
                 </Link>
               </li>
             </ul>
