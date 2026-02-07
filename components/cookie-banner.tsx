@@ -1,15 +1,18 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
 
 export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(() => {
-    if (typeof window === "undefined") return false
-    return !localStorage.getItem("cookieConsent")
-  })
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    if (!localStorage.getItem("cookieConsent")) {
+      setIsVisible(true)
+    }
+  }, [])
 
   const acceptCookies = () => {
     localStorage.setItem("cookieConsent", "accepted")
