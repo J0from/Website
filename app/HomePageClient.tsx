@@ -332,7 +332,21 @@ export function HomePageClient() {
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
                 Manufacturing
               </span>
-              .
+            </div>
+            <div>
+              -{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
+                highly regulated
+              </span>
+              ,{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
+                thin margin
+              </span>
+              , and{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
+                essential
+              </span>
+              {" "}jobs.
             </div>
           </div>
         </div>

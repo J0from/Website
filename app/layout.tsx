@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.jofrom.io"),
   title: "Human + Machine | Jo from",
   description:
-    "Jo from is a Staffing Firm. We place people and machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing.",
+    "We staff Human + Machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing - highly regulated, thin margin, and essential jobs.",
   keywords: [
     "human machine balance",
     "staffing firm",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jo from | Human + Machine Staffing",
     description:
-      "We place people and machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing.",
+      "We staff Human + Machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing - highly regulated, thin margin, and essential jobs.",
     type: "website",
     url: "https://www.jofrom.io",
     siteName: "Jo from",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jo from | Human + Machine Staffing",
     description:
-      "We place people and machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing.",
+      "We staff Human + Machines to fix labor bottlenecks in Healthcare, Energy, and Manufacturing - highly regulated, thin margin, and essential jobs.",
   },
   robots: {
     index: true,
