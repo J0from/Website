@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-black text-slate-300 py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-start">
           {/* Brand Section */}
           <div>
             <Link href="/" className="text-xl font-bold text-white flex items-center mb-4">
@@ -35,15 +35,17 @@ export function Footer() {
                 <Link href="/solutions/consulting" className="text-slate-400 hover:text-white transition-colors">
                   Staffing
                 </Link>
-              </li>
-              <li>
-                <Link href="/solutions/consulting/fractional" className="text-slate-400 hover:text-white transition-colors">
-                  Fractional Ops
-                </Link>
+                <ul className="mt-2 ml-3 space-y-2">
+                  <li>
+                    <Link href="/solutions/consulting/fractional" className="text-slate-400 hover:text-white transition-colors">
+                      Hire Talent
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li>
                 <Link href="/hire" className="text-slate-400 hover:text-white transition-colors">
-                  Hire Contract Workers
+                  Hire
                 </Link>
               </li>
             </ul>
