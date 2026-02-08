@@ -134,7 +134,7 @@ export default function StrategyDocumentPage() {
         <div className="w-full max-w-md">
           {/* Back Link */}
           <Link 
-            href="https://get.jofrom.io/solutions/smb/purchase" 
+            href="/solutions/smb/purchase" 
             className="inline-flex items-center text-slate-600 hover:text-slate-900 text-sm mb-8 transition-colors"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
