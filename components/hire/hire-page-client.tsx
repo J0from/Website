@@ -78,7 +78,7 @@ const jobCategories = [
     subtitle: "Sector 03",
     description:
       "Experienced production operators and manufacturing specialists for high-output, compliance-driven environments.",
-    image: "/images/food-processing.jpg",
+    image: "/images/food.jpg",
     icon: Factory,
     roles: [
       "Production Supervisors",
