@@ -554,7 +554,7 @@ export function HirePageClient() {
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 text-balance">
             Deploy Your Workforce{" "}
-            <span className="bg-gradient-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
               Today
             </span>
           </h2>
