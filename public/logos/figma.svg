@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
+  <g transform="translate(28, 16)">
+    <rect x="-8" y="0" width="16" height="16" rx="8" fill="#F24E1E"/>
+    <rect x="8" y="0" width="16" height="16" rx="8" fill="#FF7262"/>
+    <rect x="-8" y="16" width="16" height="16" rx="8" fill="#A259FF"/>
+    <circle cx="16" cy="24" r="8" fill="#1ABCFE"/>
+    <rect x="-8" y="32" width="16" height="16" rx="8" fill="#0ACF83"/>
+  </g>
+  <text x="152" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#333333">Figma</text>
+</svg>

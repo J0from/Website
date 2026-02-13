@@ -50,16 +50,18 @@ export default function EnterpriseClientPage() {
 
       <EnterpriseHeroSection />
 
-      <section className="py-8 bg-slate-50 border-y border-slate-200">
+      <section className="py-10 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-sm text-slate-500 mb-6 font-medium tracking-wide uppercase">
+          <p className="text-center text-sm text-slate-500 mb-8 font-medium tracking-wide uppercase">
             Trusted by Industry Leaders
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
-            <div className="text-2xl font-bold text-slate-700">Healthcare</div>
-            <div className="text-2xl font-bold text-slate-700">Energy</div>
-            <div className="text-2xl font-bold text-slate-700">Manufacturing</div>
-            <div className="text-2xl font-bold text-slate-700">Technology</div>
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+            <Image src="/logos/microsoft.svg" alt="Microsoft" width={140} height={48} className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            <Image src="/logos/aws.svg" alt="AWS" width={140} height={48} className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            <Image src="/logos/google-cloud.svg" alt="Google Cloud" width={140} height={48} className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            <Image src="/logos/salesforce.svg" alt="Salesforce" width={140} height={48} className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            <Image src="/logos/stripe.svg" alt="Stripe" width={140} height={48} className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            <Image src="/logos/snowflake.svg" alt="Snowflake" width={140} height={48} className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
           </div>
         </div>
       </section>

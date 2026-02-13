@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
+  <g transform="translate(30, 40)">
+    <rect x="-14" y="-6" width="8" height="20" rx="4" fill="#E01E5A"/>
+    <rect x="-14" y="-14" width="8" height="8" rx="4" fill="#E01E5A" opacity="0.6"/>
+    <rect x="-4" y="-14" width="20" height="8" rx="4" fill="#36C5F0"/>
+    <rect x="8" y="-14" width="8" height="8" rx="4" fill="#36C5F0" opacity="0.6"/>
+    <rect x="8" y="-4" width="8" height="20" rx="4" fill="#2EB67D"/>
+    <rect x="8" y="8" width="8" height="8" rx="4" fill="#2EB67D" opacity="0.6"/>
+    <rect x="-14" y="8" width="20" height="8" rx="4" fill="#ECB22E"/>
+    <rect x="-14" y="8" width="8" height="8" rx="4" fill="#ECB22E" opacity="0.6"/>
+  </g>
+  <text x="148" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#611F69">Slack</text>
+</svg>

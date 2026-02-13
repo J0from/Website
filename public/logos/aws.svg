@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
+  <text x="120" y="36" text-anchor="middle" font-family="'Amazon Ember', system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.5" fill="#232F3E">aws</text>
+  <path d="M85 48 Q120 58 155 48" stroke="#FF9900" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="120" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="400" fill="#232F3E">Amazon Web Services</text>
+</svg>
