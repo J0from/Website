@@ -5,15 +5,25 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import BackWarningModal from "@/components/back-warning-modal"
 import { Footer } from "@/components/footer"
+import { useOnboarding } from "@/lib/onboarding-context"
 
 export default function AgentSelectionPage() {
-  const [selectedAgents, setSelectedAgents] = useState<string[]>([])
+  const { state, update } = useOnboarding()
+  // Pre-select "sales" — Jo from Sales is the default product
+  const [selectedAgents, setSelectedAgents] = useState<string[]>(
+    state.selectedAgents.length > 0 ? state.selectedAgents : ["sales"]
+  )
   const [showBackWarning, setShowBackWarning] = useState(false)
   const router = useRouter()
+
+  // Persist selections to onboarding context
+  useEffect(() => {
+    update({ selectedAgents })
+  }, [selectedAgents, update])
 
   const agents = [
     {
@@ -216,11 +226,10 @@ export default function AgentSelectionPage() {
             {agents.map((agent) => (
               <Card
                 key={agent.id}
-                className={`cursor-pointer transition-all duration-300 hover:shadow-xl relative ${
-                  selectedAgents.includes(agent.id)
+                className={`cursor-pointer transition-all duration-300 hover:shadow-xl relative ${selectedAgents.includes(agent.id)
                     ? "border-2 border-blue-600 shadow-xl scale-105"
                     : "border-2 border-transparent hover:border-blue-200"
-                }`}
+                  }`}
                 onClick={() => toggleAgent(agent.id)}
               >
                 <CardContent className="p-6 flex flex-col h-full">
@@ -240,9 +249,8 @@ export default function AgentSelectionPage() {
 
                   <div className="mt-auto pt-4 text-center">
                     <div
-                      className={`w-4 h-4 rounded-full mx-auto transition-all duration-200 ${
-                        selectedAgents.includes(agent.id) ? "bg-blue-600" : "border-2 border-slate-300"
-                      }`}
+                      className={`w-4 h-4 rounded-full mx-auto transition-all duration-200 ${selectedAgents.includes(agent.id) ? "bg-blue-600" : "border-2 border-slate-300"
+                        }`}
                     />
                   </div>
                 </CardContent>
@@ -255,11 +263,10 @@ export default function AgentSelectionPage() {
             <Link href="/integrations">
               <Button
                 disabled={selectedAgents.length === 0}
-                className={`h-12 px-8 transition-all duration-200 ${
-                  selectedAgents.length > 0
+                className={`h-12 px-8 transition-all duration-200 ${selectedAgents.length > 0
                     ? "bg-slate-900 hover:bg-slate-800 text-white"
                     : "bg-slate-300 text-slate-500 cursor-not-allowed pointer-events-none"
-                }`}
+                  }`}
               >
                 Continue Setup ({selectedAgents.length} selected)
                 <ArrowRight className="w-4 h-4 ml-2" />

@@ -4,17 +4,26 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import BackWarningModal from "@/components/back-warning-modal"
 import { Footer } from "@/components/footer"
 import { BUSINESS_TYPES } from "@/lib/constants"
 import { Logo } from "@/components/logo"
+import { useOnboarding } from "@/lib/onboarding-context"
 
 export default function BusinessTypePage() {
-  const [selectedBusiness, setSelectedBusiness] = useState<string | null>(null)
+  const { state, update } = useOnboarding()
+  const [selectedBusiness, setSelectedBusiness] = useState<string | null>(state.businessType || null)
   const [showBackWarning, setShowBackWarning] = useState(false)
   const router = useRouter()
+
+  // Persist selection to onboarding context
+  useEffect(() => {
+    if (selectedBusiness) {
+      update({ businessType: selectedBusiness })
+    }
+  }, [selectedBusiness, update])
 
   const businessTypes = [
     {
@@ -138,11 +147,10 @@ export default function BusinessTypePage() {
             {businessTypes.map((business) => (
               <Card
                 key={business.id}
-                className={`cursor-pointer transition-all duration-300 hover:shadow-xl relative ${
-                  selectedBusiness === business.id
+                className={`cursor-pointer transition-all duration-300 hover:shadow-xl relative ${selectedBusiness === business.id
                     ? "border-2 border-blue-600 shadow-xl scale-105"
                     : "border-2 border-transparent hover:border-blue-200"
-                }`}
+                  }`}
                 onClick={() => setSelectedBusiness(business.id)}
               >
                 <CardContent className="p-6 flex flex-col h-full">
@@ -182,9 +190,8 @@ export default function BusinessTypePage() {
                       <div className="text-xs text-gray-500">{business.agentCount}</div>
                     </div>
                     <div
-                      className={`w-4 h-4 rounded-full mx-auto transition-all duration-200 ${
-                        selectedBusiness === business.id ? "bg-blue-600" : "border-2 border-slate-300"
-                      }`}
+                      className={`w-4 h-4 rounded-full mx-auto transition-all duration-200 ${selectedBusiness === business.id ? "bg-blue-600" : "border-2 border-slate-300"
+                        }`}
                     />
                   </div>
                 </CardContent>
@@ -197,11 +204,10 @@ export default function BusinessTypePage() {
             <Link href="/agent-selection">
               <Button
                 disabled={!selectedBusiness}
-                className={`h-12 px-8 transition-all duration-200 ${
-                  selectedBusiness
+                className={`h-12 px-8 transition-all duration-200 ${selectedBusiness
                     ? "bg-slate-900 hover:bg-slate-800 text-white"
                     : "bg-slate-300 text-slate-500 cursor-not-allowed pointer-events-none"
-                }`}
+                  }`}
               >
                 Continue Setup
                 <ArrowRight className="w-4 h-4 ml-2" />

@@ -58,6 +58,8 @@ export const metadata: Metadata = {
   },
 }
 
+import { OnboardingProvider } from "@/lib/onboarding-context"
+
 export default function RootLayout({
   children,
 }: {
@@ -72,7 +74,9 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className="font-sans">
-        {children}
+        <OnboardingProvider>
+          {children}
+        </OnboardingProvider>
         <CookieBanner />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-LXZ15J9WXC" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">

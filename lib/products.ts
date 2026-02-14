@@ -6,6 +6,19 @@ export interface Product {
   features: string[]
   agents: number
   billingCycle: "monthly" | "annual"
+  stripePriceId: string
+}
+
+// Stripe price IDs (test mode) — maps each plan to its Stripe price
+export const STRIPE_PRICE_IDS: Record<string, string> = {
+  "starter-monthly": "price_1T0jwaL7UZaS7zcDpOctz8nR",
+  "starter-annual": "price_1T0jw4L7UZaS7zcDfaPIRhVt",
+  "growth-monthly": "price_1T0jwAL7UZaS7zcD9IHuZqw4",
+  "growth-annual": "price_1T0jwFL7UZaS7zcD4MoC1KRo",
+  "professional-monthly": "price_1T0jwbL7UZaS7zcDKRGbH99m",
+  "professional-annual": "price_1T0jwdL7UZaS7zcD5TayzeAf",
+  "enterprise-monthly": "price_1T0jwfL7UZaS7zcDDhZpQQ6q",
+  "enterprise-annual": "price_1T0jwhL7UZaS7zcDjFY5Kq1N",
 }
 
 // Source of truth for all pricing plans
@@ -19,6 +32,7 @@ export const PRODUCTS: Product[] = [
     features: ["1 Jo", "Email support", "Basic analytics", "Standard integrations"],
     agents: 1,
     billingCycle: "monthly",
+    stripePriceId: STRIPE_PRICE_IDS["starter-monthly"],
   },
   {
     id: "growth-monthly",
@@ -28,6 +42,7 @@ export const PRODUCTS: Product[] = [
     features: ["3 Jos", "Priority email support", "Advanced analytics", "Custom workflows"],
     agents: 3,
     billingCycle: "monthly",
+    stripePriceId: STRIPE_PRICE_IDS["growth-monthly"],
   },
   {
     id: "professional-monthly",
@@ -37,6 +52,7 @@ export const PRODUCTS: Product[] = [
     features: ["Everything in Growth Plan", "5 Jos", "API access", "24/7 priority support"],
     agents: 5,
     billingCycle: "monthly",
+    stripePriceId: STRIPE_PRICE_IDS["professional-monthly"],
   },
   {
     id: "enterprise-monthly",
@@ -46,6 +62,7 @@ export const PRODUCTS: Product[] = [
     features: ["Everything in Professional Plan", "8 Jos", "Account manager", "Custom training", "SLA guarantee"],
     agents: 8,
     billingCycle: "monthly",
+    stripePriceId: STRIPE_PRICE_IDS["enterprise-monthly"],
   },
   // Annual Plans
   {
@@ -56,6 +73,7 @@ export const PRODUCTS: Product[] = [
     features: ["1 Jo", "Email support", "Basic analytics", "Standard integrations"],
     agents: 1,
     billingCycle: "annual",
+    stripePriceId: STRIPE_PRICE_IDS["starter-annual"],
   },
   {
     id: "growth-annual",
@@ -65,6 +83,7 @@ export const PRODUCTS: Product[] = [
     features: ["3 Jos", "Priority email support", "Advanced analytics", "Custom workflows"],
     agents: 3,
     billingCycle: "annual",
+    stripePriceId: STRIPE_PRICE_IDS["growth-annual"],
   },
   {
     id: "professional-annual",
@@ -74,6 +93,7 @@ export const PRODUCTS: Product[] = [
     features: ["Everything in Growth Plan", "5 Jos", "API access", "24/7 priority support"],
     agents: 5,
     billingCycle: "annual",
+    stripePriceId: STRIPE_PRICE_IDS["professional-annual"],
   },
   {
     id: "enterprise-annual",
@@ -83,5 +103,6 @@ export const PRODUCTS: Product[] = [
     features: ["Everything in Professional Plan", "8 Jos", "Account manager", "Custom training", "SLA guarantee"],
     agents: 8,
     billingCycle: "annual",
+    stripePriceId: STRIPE_PRICE_IDS["enterprise-annual"],
   },
 ]

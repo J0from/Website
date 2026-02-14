@@ -14,24 +14,19 @@ export async function startCheckoutSession(productId: string): Promise<string> {
     throw new Error(`Product with id "${productId}" not found`)
   }
 
-  // For annual plans, calculate the yearly amount
-  const amount = product.billingCycle === "annual" ? product.priceInCents * 12 : product.priceInCents
+  // Extract tier and billing from productId (e.g. "growth-annual")
+  const [tier, billing] = productId.split("-")
+  const onboardingUrl = process.env.NEXT_PUBLIC_ONBOARDING_URL || "http://localhost:3000"
+  const returnUrl = `${onboardingUrl}/onboarding?tier=${tier}&billing=${billing}&paid=true&session_id={CHECKOUT_SESSION_ID}`
 
-  // Create Checkout Sessions
   const session = await stripe.checkout.sessions.create({
     ui_mode: "embedded",
-    redirect_on_completion: "never",
+    redirect_on_completion: "always",
+    return_url: returnUrl,
+    payment_method_types: ["card"],
     line_items: [
       {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: product.name,
-            description: product.description,
-          },
-          unit_amount: amount,
-          recurring: product.billingCycle === "monthly" ? { interval: "month" } : { interval: "year" },
-        },
+        price: product.stripePriceId,
         quantity: 1,
       },
     ],

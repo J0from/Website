@@ -4,17 +4,26 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import BackWarningModal from "@/components/back-warning-modal"
 import { Footer } from "@/components/footer"
 import { INTEGRATIONS } from "@/lib/constants"
 import { Logo } from "@/components/logo"
+import { useOnboarding } from "@/lib/onboarding-context"
 
 export default function IntegrationsPage() {
-  const [selectedIntegrations, setSelectedIntegrations] = useState<string[]>([])
+  const { state, update } = useOnboarding()
+  const [selectedIntegrations, setSelectedIntegrations] = useState<string[]>(
+    state.selectedIntegrations.length > 0 ? state.selectedIntegrations : []
+  )
   const [showBackWarning, setShowBackWarning] = useState(false)
   const router = useRouter()
+
+  // Persist selections to onboarding context
+  useEffect(() => {
+    update({ selectedIntegrations })
+  }, [selectedIntegrations, update])
 
   const integrations = INTEGRATIONS
 
@@ -92,11 +101,10 @@ export default function IntegrationsPage() {
             {integrations.map((integration) => (
               <Card
                 key={integration.id}
-                className={`cursor-pointer transition-all duration-300 hover:shadow-lg relative ${
-                  selectedIntegrations.includes(integration.id)
+                className={`cursor-pointer transition-all duration-300 hover:shadow-lg relative ${selectedIntegrations.includes(integration.id)
                     ? "border-2 border-blue-600 shadow-lg scale-105"
                     : "border-2 border-transparent hover:border-blue-200"
-                }`}
+                  }`}
                 onClick={() => toggleIntegration(integration.id)}
               >
                 <CardContent className="p-4 text-center">
@@ -105,9 +113,8 @@ export default function IntegrationsPage() {
                   <p className="text-xs text-gray-600 mb-3">{integration.description}</p>
 
                   <div
-                    className={`w-4 h-4 rounded-full mx-auto transition-all duration-200 ${
-                      selectedIntegrations.includes(integration.id) ? "bg-blue-600" : "border-2 border-slate-300"
-                    }`}
+                    className={`w-4 h-4 rounded-full mx-auto transition-all duration-200 ${selectedIntegrations.includes(integration.id) ? "bg-blue-600" : "border-2 border-slate-300"
+                      }`}
                   />
                 </CardContent>
               </Card>

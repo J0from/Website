@@ -8,12 +8,17 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ArrowLeft, ArrowRight, Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect, Suspense } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Footer } from "@/components/footer"
+import { Logo } from "@/components/logo"
+import { useOnboarding } from "@/lib/onboarding-context"
 
-export default function SignUpPage() {
+function SignUpContent() {
+  const { state, update } = useOnboarding()
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -25,7 +30,28 @@ export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
+  const [error, setError] = useState("")
+
+  // Pick up tier/billing from URL params (passed from checkout)
+  useEffect(() => {
+    const tier = searchParams.get("tier")
+    const billing = searchParams.get("billing")
+    if (tier) update({ tier })
+    if (billing) update({ billing })
+  }, [searchParams, update])
+
+  // Pre-fill from onboarding context if returning to this step
+  useEffect(() => {
+    if (state.firstName || state.email) {
+      setFormData((prev) => ({
+        ...prev,
+        firstName: state.firstName || prev.firstName,
+        lastName: state.lastName || prev.lastName,
+        email: state.email || prev.email,
+        company: state.company || prev.company,
+      }))
+    }
+  }, [state.firstName, state.lastName, state.email, state.company])
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -53,15 +79,46 @@ export default function SignUpPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (isFormValid()) {
-      setIsLoading(true)
-      console.log("Sign up submitted:", formData)
+    if (!isFormValid()) return
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+    setIsLoading(true)
+    setError("")
 
-      setIsLoading(false)
+    try {
+      // Register user via dashboard API
+      const dashboardUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL || "https://app.jofrom.io"
+      const res = await fetch(`${dashboardUrl}/api/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          company: formData.company,
+          tier: state.tier,
+          billing: state.billing,
+        }),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || "Registration failed")
+      }
+
+      // Save to onboarding context
+      update({
+        email: formData.email,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        company: formData.company,
+      })
+
       router.push("/business-type")
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -69,25 +126,8 @@ export default function SignUpPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}
       <nav className="flex justify-between items-center p-4 sm:p-6 max-w-6xl mx-auto">
-        <Link href="/" className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center">
-          <span className="md:hidden">Jo from</span>
-          <span className="hidden md:inline">J</span>
-          <div className="relative mx-1">
-            <Image src="/qubit.png" alt="Qubit" width={20} height={20} className="brightness-0" />
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-normal opacity-100"
-              style={{
-                maskImage: `url('/qubit.png')`,
-                maskSize: "contain",
-                maskRepeat: "no-repeat",
-                maskPosition: "center",
-                WebkitMaskImage: `url('/qubit.png')`,
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-              }}
-            ></div>
-          </div>
+        <Link href="/" className="text-xl sm:text-2xl">
+          <Logo width={20} height={20} />
         </Link>
         <Button variant="ghost" className="gap-2" asChild>
           <Link href="/">
@@ -103,10 +143,19 @@ export default function SignUpPage() {
           <div className="text-center mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Create Your Account</h1>
             <p className="text-slate-600">Join Jo and transform your business operations</p>
+            {state.tier && (
+              <p className="text-sm text-blue-600 mt-2">
+                {state.tier.charAt(0).toUpperCase() + state.tier.slice(1)} Plan ({state.billing})
+              </p>
+            )}
           </div>
 
           <Card className="shadow-lg">
             <CardContent className="p-6 sm:p-8">
+              {error && (
+                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600">{error}</div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* First Name & Last Name */}
                 <div className="grid grid-cols-2 gap-4">
@@ -189,19 +238,16 @@ export default function SignUpPage() {
                     <div className="space-y-1">
                       <div className="flex gap-1">
                         <div
-                          className={`h-1 flex-1 rounded ${
-                            passwordStrength.strength >= 1 ? "bg-red-500" : "bg-slate-200"
-                          }`}
+                          className={`h-1 flex-1 rounded ${passwordStrength.strength >= 1 ? "bg-red-500" : "bg-slate-200"
+                            }`}
                         ></div>
                         <div
-                          className={`h-1 flex-1 rounded ${
-                            passwordStrength.strength >= 2 ? "bg-yellow-500" : "bg-slate-200"
-                          }`}
+                          className={`h-1 flex-1 rounded ${passwordStrength.strength >= 2 ? "bg-yellow-500" : "bg-slate-200"
+                            }`}
                         ></div>
                         <div
-                          className={`h-1 flex-1 rounded ${
-                            passwordStrength.strength >= 3 ? "bg-green-500" : "bg-slate-200"
-                          }`}
+                          className={`h-1 flex-1 rounded ${passwordStrength.strength >= 3 ? "bg-green-500" : "bg-slate-200"
+                            }`}
                         ></div>
                       </div>
                       <p className="text-xs text-slate-500">{passwordStrength.label}</p>
@@ -252,11 +298,10 @@ export default function SignUpPage() {
                   type="submit"
                   disabled={!isFormValid() || isLoading}
                   variant={isFormValid() && !isLoading ? "gradient" : "default"}
-                  className={`w-full h-12 transition-all duration-200 ${
-                    !(isFormValid() && !isLoading)
+                  className={`w-full h-12 transition-all duration-200 ${!(isFormValid() && !isLoading)
                       ? "bg-slate-300 text-slate-500 cursor-not-allowed"
                       : ""
-                  }`}
+                    }`}
                 >
                   {isLoading ? (
                     "Creating Account..."
@@ -273,7 +318,7 @@ export default function SignUpPage() {
               <div className="mt-6 text-center">
                 <p className="text-sm text-slate-600">
                   Already have an account?{" "}
-                  <Link href="https://app.jofrom.io/auth" className="text-blue-600 hover:underline font-semibold">
+                  <Link href="https://app.jofrom.io/auth/signin" className="text-blue-600 hover:underline font-semibold">
                     Log in
                   </Link>
                 </p>
@@ -286,5 +331,13 @@ export default function SignUpPage() {
       {/* Footer */}
       <Footer />
     </div>
+  )
+}
+
+export default function SignUpPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100" />}>
+      <SignUpContent />
+    </Suspense>
   )
 }

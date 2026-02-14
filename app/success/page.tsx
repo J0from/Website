@@ -2,42 +2,32 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, Calendar, ArrowRight, Instagram, Linkedin, Twitter } from "lucide-react"
+import { CheckCircle, ArrowRight, Calendar, Instagram, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
-import { useMemo } from "react"
+import { useMemo, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { Footer } from "@/components/footer"
+import { Logo } from "@/components/logo"
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams()
 
   const companyName = useMemo(() => {
-    return searchParams.get("company") || (typeof window !== "undefined" ? localStorage.getItem("jo-company-name") : null) || "Your Company"
+    return (
+      searchParams.get("company") ||
+      (typeof window !== "undefined" ? localStorage.getItem("jo-company-name") : null) ||
+      "Your Company"
+    )
   }, [searchParams])
+
+  const dashboardUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL || "https://app.jofrom.io"
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Navigation */}
       <nav className="flex justify-between items-center p-4 sm:p-6 max-w-4xl mx-auto">
-        <Link href="/" className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center">
-          J
-          <div className="relative mx-1 w-4 h-4 sm:w-5 sm:h-5">
-            <Image src="/qubit.png" alt="Qubit" fill sizes="20px" className="brightness-0 object-contain" />
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-normal opacity-100"
-              style={{
-                maskImage: `url('/qubit.png')`,
-                maskSize: "contain",
-                maskRepeat: "no-repeat",
-                maskPosition: "center",
-                WebkitMaskImage: `url('/qubit.png')`,
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-              }}
-            ></div>
-          </div>
+        <Link href="/" className="text-xl sm:text-2xl">
+          <Logo width={20} height={20} />
         </Link>
       </nav>
 
@@ -55,27 +45,40 @@ export default function SuccessPage() {
                 {/* Success Message */}
                 <div className="space-y-3">
                   <h1 className="text-3xl font-bold text-gray-900">Setup Complete!</h1>
-                  <p className="text-lg text-gray-600">Your workspace is ready.</p>
+                  <p className="text-lg text-gray-600">
+                    Your workspace for <span className="font-semibold">{companyName}</span> is ready.
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Jo from Sales is configured and waiting to help you close deals.
+                  </p>
                 </div>
 
-                {/* Calendly CTA */}
-                <div className="space-y-4 w-full">
+                {/* Primary CTA: Go to Dashboard */}
+                <div className="space-y-3 w-full">
                   <Button
-                    onClick={() => window.open("https://calendly.com/myj0/30min", "_blank")}
+                    asChild
                     className="w-full h-12 bg-slate-900 hover:bg-slate-800 text-white"
                   >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Meet Jo from {companyName}
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <a href={`${dashboardUrl}/auth/signin`}>
+                      Go to Dashboard
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
                   </Button>
 
-                  <p className="text-xs text-gray-500">Click on the button above.</p>
+                  {/* Secondary CTA: Meet Jo / Calendly */}
+                  <Button
+                    variant="outline"
+                    onClick={() => window.open("https://calendly.com/myj0/30min", "_blank")}
+                    className="w-full h-10"
+                  >
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Schedule a walkthrough with our team
+                  </Button>
                 </div>
 
-                {/* Social Media Icons at Bottom */}
+                {/* Social */}
                 <div className="border-t pt-6 w-full">
                   <div className="flex justify-center gap-4">
-                    {/* Updated Instagram link */}
                     <Button
                       variant="ghost"
                       onClick={() => window.open("https://www.instagram.com/jofrom.io/", "_blank")}
@@ -83,7 +86,6 @@ export default function SuccessPage() {
                     >
                       <Instagram className="w-6 h-6 text-pink-500" />
                     </Button>
-
                     <Button
                       variant="ghost"
                       onClick={() => window.open("https://x.com/J0from", "_blank")}
@@ -91,8 +93,6 @@ export default function SuccessPage() {
                     >
                       <Twitter className="w-6 h-6 text-blue-400" />
                     </Button>
-
-                    {/* Updated LinkedIn link */}
                     <Button
                       variant="ghost"
                       onClick={() => window.open("https://www.linkedin.com/company/jofrom", "_blank")}
@@ -117,5 +117,13 @@ export default function SuccessPage() {
 
       <Footer />
     </div>
+  )
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100" />}>
+      <SuccessContent />
+    </Suspense>
   )
 }
