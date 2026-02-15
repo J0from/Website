@@ -32,9 +32,8 @@ export default function Section({
       )}
 
       <motion.h2
-        className={`lg:text-[4rem] xl:text-[5rem] font-bold leading-[0.6] tracking-tight max-w-3xl text-3xl ${
-          isHero ? "pb-4 min-h-[6rem] md:min-h-[8rem] lg:min-h-[10rem]" : "pb-2"
-        }`}
+        className={`lg:text-[4rem] xl:text-[5rem] font-bold leading-[0.6] tracking-tight max-w-3xl text-3xl text-white ${isHero ? "pb-4 min-h-[6rem] md:min-h-[8rem] lg:min-h-[10rem]" : "pb-2"
+          }`}
         initial={{ opacity: 0, y: 50 }}
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}
